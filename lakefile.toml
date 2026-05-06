@@ -1,0 +1,17 @@
+name = "CarnahanStarling"
+version = "0.1.0"
+description = "Autoformalization output for Carnahan-Starling"
+defaultTargets = ["CarnahanStarling"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.30.0-rc2"
+
+[[lean_lib]]
+name = "CarnahanStarling"
+globs = ["CarnahanStarling.*"]
+
+# [[require]]
+# name = "checkdecls"
+# git = "https://github.com/PatrickMassot/checkdecls.git"

@@ -1,0 +1,293 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\textbf{Derivation} \textbf{of the Carnahan--Starling Hard Sphere
+Reference Term for SAFT Equation of State}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Deriving the Carnahan-Starling Reference term}
+\end{enumerate}
+
+In the SAFT equation of state, the repulsive interactions in the segment
+term are defined through a reference contribution is based on a
+hard-sphere fluid. The Carnahan--Starling equation is used to describe
+this reference HS contribution, as a function of the packing density
+(\(\eta\)).
+
+The compressibility factor for a CS reference terms is defined as:
+
+\emph{\textbf{Main function -- CS compressibility factor}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[Z^{CS} = \frac{1 + \ \eta + \ \eta^{2} - \eta^{3}\ }{(1 - \ \eta)^{3}}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(1)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+The Helmholtz free energy is related to the compressibility factor, as:
+
+\emph{\textbf{Main function -- relating A to Z}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \ \int_{0}^{\rho}{\frac{Z - 1}{\rho}\ d\rho}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(2)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{Substituting} \textbf{Eq. 1} into \textbf{Eq. 2}, gives:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \int_{0}^{\rho}{\frac{\frac{1 + \ \eta + \ \eta^{2} - \eta^{3}\ }{(1 - \ \eta)^{3}} - 1}{\rho}\ d\rho}\ \]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(3)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{Simplifying} the integer in the deviation:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{1 + \ \eta + \ \eta^{2} - \eta^{3}\ }{(1 - \ \eta)^{3}} - 1\  = \ \frac{1 + \ \eta + \ \eta^{2} - \eta^{3} - (1 - \ \eta)^{3}\ }{(1 - \ \eta)^{3}} = \frac{1 + \ \eta + \ \eta^{2} - \eta^{3} - (1 - \ 3\eta + 3\eta^{2} - \eta^{3})\ }{(1 - \ \eta)^{3}} = \frac{4\eta - \ {2\eta}^{2}\ }{(1 - \ \eta)^{3}}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(4)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{\emph{Main relation}:} Since \(\eta\  \propto \rho\), then
+\(d\rho/\rho\  \propto d\eta/\eta\) (\textbf{R.1})
+
+\textbf{Substituting R.1} and \textbf{Eq. 4} into \textbf{Eq. 3}, gives:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \ \int_{}^{}{\frac{\frac{4\eta - \ {2\eta}^{2}\ }{(1 - \ \eta)^{3}}}{\eta}\ d\eta}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(5)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{Simplify,}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \ \int_{}^{}{\frac{4 - \ 2\eta\ }{(1 - \ \eta)^{3}}\ d\eta}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(6)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{Solve} the integral with respect to \(\eta\):
+(\emph{\textbf{Main function -- CS reference term repulsive
+interactions}})
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \ \frac{4\eta - \ 3\eta^{2}\ }{(1 - \ \eta)^{2}}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(7)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{The last step includes additional variables for defining the
+packing density}
+
+\textbf{The packing density (}\(\eta\)\textbf{) can be written as:}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\eta\  = \frac{\pi}{6}\rho md^{3}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(8)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{Substituting Eq. 8} into \textbf{Eq. 7}, gives:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \ \frac{4(\frac{\pi}{6}\rho md^{3}) - \ 3{(\frac{\pi}{6}\rho md^{3})}^{2}\ }{\left( 1 - \ \frac{\pi}{6}\rho md^{3} \right)^{2}}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(9)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{Simplify, (Main function: expanded CS reference term)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9357}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0643}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[\frac{A^{res}(ref)}{Nk_{B}T} = \ \ \frac{(\frac{2\pi}{3}\rho md^{3}) - \ \frac{\pi^{2}}{12}\rho^{2}m^{2}d^{6}\ }{\left( 1 - \ \frac{\pi}{6}\rho md^{3} \right)^{2}}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(10)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\textbf{For Eq. (1) -- (10), the type of variables:}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2565}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2177}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2547}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2711}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\emph{\textbf{Variables}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Definition}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Type}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Constraints}
+\end{minipage} \\
+\midrule()
+\endhead
+\emph{\textbf{Z}} & \textbf{Compressibility factor} & \textbf{Real
+positive numbers} & \textbf{Z \textgreater{} 0, Z = 1 for a 0 particle
+system} \\
+\emph{\textbf{d}} & \textbf{Segment diameter} & \textbf{Real positive
+numbers} & \textbf{Negative is not physical. d \textgreater{} 0} \\
+\emph{\textbf{N}} & \textbf{Number of particles} & \textbf{Natural
+positive numbers} & \textbf{Do we assign a 0 particles or do we keep it
+at least 1 particle} \\
+\(\pi\) & \textbf{Constant} & \textbf{Real positive numbers} &
+\textbf{Fixed to a fundamental value} \\
+\emph{\textbf{m}} & \textbf{Chain length} & \textbf{Real positive
+numbers} & \textbf{It cannot be negative, and can be m ≥1} \\
+\emph{\textbf{k\textsubscript{B}}} & \textbf{Boltzmann constant s} &
+\textbf{Real positive numbers} & \textbf{Fixed to a fundamental value,
+positive} \\
+\emph{\textbf{T}} & \textbf{Temperature} & \textbf{Real positive
+numbers} & \textbf{We can assign absolute 0 K, cannot be negative} \\
+\emph{\textbf{η}} & \textbf{Packing density} & \textbf{Real positive
+numbers} & \emph{\textbf{0 ≤ η \textless{} 1}} \\
+\bottomrule()
+\end{longtable}
+
+\end{document}

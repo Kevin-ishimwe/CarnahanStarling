@@ -1,0 +1,27 @@
+# Lean / Lake build artifacts
+.lake/
+
+# Doc-gen4 nested project build
+docbuild/.lake/
+
+# Blueprint build outputs (keep src, ignore generated web)
+blueprint/web/
+blueprint/lean_decls/
+blueprint/src/web.paux
+blueprint/src/*.aux
+blueprint/src/*.log
+blueprint/src/*.pdf
+blueprint/src/*.out
+blueprint/src/*.fls
+blueprint/src/*.fdb_latexmk
+
+# macOS junk
+.DS_Store
+
+# Images / screenshots you may not want tracked
+*.png
+
+# Jekyll build output (home_page)
+home_page/_site/
+home_page/.jekyll-cache/
+home_page/Gemfile.lock

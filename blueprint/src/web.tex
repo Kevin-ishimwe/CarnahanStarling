@@ -1,0 +1,38 @@
+\documentclass{report}
+
+\usepackage{amssymb, amsthm, amsmath}
+\usepackage{hyperref}
+\usepackage[thms=definition+lemma+proposition+theorem+corollary]{blueprint}
+
+
+% Define theorem environments AFTER loading blueprint
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\home{https://kevin-ishimwe.github.io/CarnahanStarling}
+\github{https://github.com/Kevin-ishimwe/CarnahanStarling}
+\dochome{https://kevin-ishimwe.github.io/CarnahanStarling/docs/}
+
+\input{macros/common}
+\input{macros/web}
+
+\home{}
+\github{}
+\dochome{}
+
+\title{Carnahan-Starling Equation of State Formalization}
+\author{Kevin Ishimwe}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\input{content}
+\end{document}
