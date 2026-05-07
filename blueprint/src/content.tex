@@ -84,7 +84,7 @@ $$\frac{A^{\text{res}}(ref)}{Nk_BT} = \int_0^\rho \frac{Z(\rho') - 1}{\rho'} d\r
 
 \begin{theorem}[Substitute Z into Integral]
 \label{thm:substitute_z_into_integral}
-\lean{SubstituteZIntoIntegral.substituteZIntoIntegral}
+\lean{CarnahanStarlingPrimitive.substituteZIntoIntegral}
 \uses{def:cs_compressibility_factor, def:helmholtz_from_z}
 \leanok
 Substituting the explicit Carnahan-Starling formula gives:
@@ -93,7 +93,7 @@ $$\frac{A^{\text{res}}(ref)}{Nk_BT} = \int_0^\rho \frac{\frac{1 + \eta(\rho') + 
 
 \begin{theorem}[Simplify Integrand]
 \label{thm:cs_numerator_identity}
-\lean{CSSimplifyIntegrand.cs_numerator_identity}
+\lean{CarnahanStarlingPrimitive.cs_numerator_identity}
 \uses{def:cs_compressibility_factor}
 \leanok
 The integrand numerator simplifies to:
@@ -102,7 +102,7 @@ $$(1 + \eta + \eta^2 - \eta^3) - (1 - \eta)^3 = 4\eta - 2\eta^2$$
 
 \begin{theorem}
 \label{thm:cs_simplify_integrand}
-\lean{CSSimplifyIntegrand.csSimplifyIntegrand}
+\lean{CarnahanStarlingPrimitive.csSimplifyIntegrand}
 \uses{thm:cs_numerator_identity, thm:substitute_z_into_integral}
 \leanok
 The simplified integrand is:
@@ -113,7 +113,7 @@ $$Z^{\text{CS}}(\eta) - 1 = \frac{4\eta - 2\eta^2}{(1 - \eta)^3}$$
 
 \begin{definition}[Packing Density Function]
 \label{def:packing_density_fn}
-\lean{PackingDensity.packingDensityFn}
+\lean{packingDensityFn}
 \uses{def:primitive_vars}
 \leanok
 The packing density relates macroscopic variables to the packing fraction:
@@ -122,7 +122,7 @@ $$\eta = \frac{\pi}{6} \rho m d^3$$
 
 \begin{theorem}
 \label{thm:packing_density_nonneg}
-\lean{PackingDensity.packingDensity_nonneg}
+\lean{PackingDensityParams.packingDensity_nonneg}
 \uses{def:packing_density_fn}
 \leanok
 The packing density is non-negative: $0 \leq \eta$.
@@ -130,7 +130,7 @@ The packing density is non-negative: $0 \leq \eta$.
 
 \begin{theorem}
 \label{thm:packing_density_mem_Ico}
-\lean{PackingDensity.packingDensity_mem_Ico}
+\lean{PackingDensityParams.packingDensity_mem_Ico}
 \uses{def:packing_density_fn}
 \leanok
 The packing density is physically valid: $\eta \in [0, 1)$.
@@ -140,7 +140,7 @@ The packing density is physically valid: $\eta \in [0, 1)$.
 
 \begin{theorem}[Proportionality Integral Change]
 \label{thm:proportionality_integral_change_of_var}
-\lean{ProportionalityIntegralChangeOfVar.proportionalityIntegralChangeOfVar}
+\lean{CarnahanStarlingPrimitive.proportionalityIntegralChangeOfVar}
 \uses{def:primitive_vars, def:packing_density_fn}
 \leanok
 Since $\eta = C \rho$ for constant $C = \frac{\pi}{6} m d^3 > 0$, integrals of functions divided by the variable are invariant:
@@ -149,7 +149,7 @@ $$\int_0^\rho \frac{g(C \rho')}{\rho'} d\rho' = \int_0^\eta \frac{g(\eta')}{\eta
 
 \begin{theorem}[Change Variable to $\eta$]
 \label{thm:cs_change_variable_to_eta}
-\lean{CSChangeVariableToEta.csChangeVariableToEta}
+\lean{CarnahanStarlingPrimitive.csChangeVariableToEta}
 \uses{thm:cs_simplify_integrand, thm:proportionality_integral_change_of_var}
 \leanok
 Rewriting the Helmholtz integral entirely in terms of $\eta$:
@@ -160,7 +160,7 @@ $$\frac{A^{\text{res}}(ref)}{Nk_BT} = \int_0^\eta \frac{4\eta' - 2\eta'^2}{(1 - 
 
 \begin{theorem}[Cancel $\eta$ in Integrand]
 \label{thm:cs_integrand_cancel_eta}
-\lean{ChangeVariableToEta.csIntegrandCancelEta}
+\lean{CarnahanStarlingPrimitive.csIntegrandCancelEta}
 \uses{thm:cs_change_variable_to_eta}
 \leanok
 Factoring and canceling $\eta$:
@@ -171,7 +171,7 @@ $$\frac{4\eta' - 2\eta'^2}{(1 - \eta')^3 \cdot \eta'} = \frac{4 - 2\eta'}{(1 - \
 
 \begin{definition}[CS Antiderivative]
 \label{def:cs_antideriv}
-\lean{SimplifyIntegrandEta.cs_antideriv}
+\lean{cs_antideriv}
 \uses{thm:cs_integrand_cancel_eta}
 \leanok
 The antiderivative of $\frac{4 - 2\eta}{(1 - \eta)^3}$ is:
@@ -180,7 +180,7 @@ $$F(\eta) = \frac{4\eta - 3\eta^2}{(1 - \eta)^2}$$
 
 \begin{definition}[Carnahan-Starling Reference Term]
 \label{def:cs_reference_term}
-\lean{SimplifyIntegrandEta.csReferenceTerm}
+\lean{CarnahanStarlingPrimitive.csReferenceTerm}
 \uses{def:cs_antideriv}
 \leanok
 The Carnahan-Starling hard-sphere reference term is:
@@ -189,7 +189,7 @@ $$\frac{A^{\text{res}}(ref)}{Nk_BT} = \frac{4\eta - 3\eta^2}{(1 - \eta)^2}$$
 
 \begin{theorem}
 \label{thm:cs_reference_integral_eq}
-\lean{SimplifyIntegrandEta.csReferenceIntegralEq}
+\lean{CarnahanStarlingPrimitive.csReferenceIntegralEq}
 \uses{def:cs_antideriv, def:cs_reference_term}
 \leanok
 By the Fundamental Theorem of Calculus:
@@ -200,7 +200,7 @@ $$\int_0^\eta \frac{4 - 2\eta'}{(1 - \eta')^3} d\eta' = \frac{4\eta - 3\eta^2}{(
 
 \begin{theorem}[Substitute Packing Density Back]
 \label{thm:substitute_packing_density}
-\lean{CSSubstitutePackingDensity.substitutePackingDensity}
+\lean{PackingDensityParams.substitutePackingDensity}
 \uses{def:cs_reference_term, def:packing_density_fn}
 \leanok
 Substituting $\eta = \frac{\pi}{6}\rho md^3$ into the reference term:
@@ -211,7 +211,7 @@ $$\frac{A^{\text{res}}(ref)}{Nk_BT} = \frac{4 \cdot \frac{\pi}{6}\rho md^3 - 3 \
 
 \begin{definition}[Expanded CS Reference Term]
 \label{def:expanded_cs_reference_term}
-\lean{ExpandedCSReferenceTerm.expandedCSReferenceTerm}
+\lean{PackingDensityParams.expandedCSReferenceTerm}
 \uses{def:cs_reference_term, def:packing_density_fn}
 \leanok
 Expanding the numerator coefficients:
@@ -220,7 +220,7 @@ $$\frac{A^{\text{res}}(ref)}{Nk_BT} = \frac{\frac{2\pi}{3}\rho md^3 - \frac{\pi^
 
 \begin{theorem}
 \label{thm:four_eta_expansion}
-\lean{ExpandedCSReferenceTerm.four_eta_expansion}
+\lean{PackingDensityParams.four_eta_expansion}
 \uses{def:packing_density_fn}
 \leanok
 Expansion of the first term:
@@ -229,7 +229,7 @@ $$4 \cdot \frac{\pi}{6}\rho md^3 = \frac{2\pi}{3}\rho md^3$$
 
 \begin{theorem}
 \label{thm:three_eta_sq_expansion}
-\lean{ExpandedCSReferenceTerm.three_eta_sq_expansion}
+\lean{PackingDensityParams.three_eta_sq_expansion}
 \uses{def:packing_density_fn}
 \leanok
 Expansion of the second term:
@@ -238,7 +238,7 @@ $$3 \left(\frac{\pi}{6}\rho md^3\right)^2 = \frac{\pi^2}{12}\rho^2 m^2 d^6$$
 
 \begin{theorem}[Final Form Equivalence]
 \label{thm:expanded_cs_reference_term_eq_compact}
-\lean{ExpandedCSReferenceTerm.expandedCSReferenceTerm_eq_compact}
+\lean{PackingDensityParams.expandedCSReferenceTerm_eq_compact}
 \uses{def:expanded_cs_reference_term, def:cs_reference_term}
 \leanok
 The expanded form is equivalent to the compact packing-fraction form:
