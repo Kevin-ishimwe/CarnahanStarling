@@ -21,6 +21,4 @@ rev = "main"
 name = "CarnahanStarling"
 globs = ["CarnahanStarling.*"]
 
-# [[require]]
-# name = "checkdecls"
-# git = "https://github.com/PatrickMassot/checkdecls.git"
+
