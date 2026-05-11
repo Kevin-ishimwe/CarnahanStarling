@@ -1,50 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8">
+    {% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap"
+      as="style"
+      type="text/css"
+      crossorigin
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6d28d9" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    {% if jekyll.environment == "production" %}
+    <link
+      rel="stylesheet"
+      href="{{ site.github.repository_name | append: '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"
+    />
+    {% else %}
+    <link
+      rel="stylesheet"
+      href="{{ 'assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"
+    />
+    {% endif %} {% include head-custom.html %}
+  </head>
 
-  {% seo %}
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style"
-    type="text/css" crossorigin>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#157878">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  {% if jekyll.environment == "production" %}
-  <link rel="stylesheet"
-    href="{{ site.github.repository_name | append: '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  {% else %}
-  <link rel="stylesheet" href="{{ 'assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  {% endif %}
-  {% include head-custom.html %}
-</head>
+  <body class="home-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-background"></div>
+      <div class="hero-content">
+        <div class="logo-container">
+          <svg
+            class="hexagon-icon"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <style>
+                .hex-outer {
+                  fill: none;
+                  stroke: white;
+                  stroke-width: 2;
+                }
+                .hex-inner {
+                  fill: #a855f7;
+                }
+              </style>
+            </defs>
+            <circle cx="50" cy="50" r="48" class="hex-outer" />
+            <circle cx="50" cy="50" r="12" class="hex-inner" />
+            <circle cx="50" cy="50" r="20" class="hex-outer" />
+          </svg>
+        </div>
 
-<body>
-  <a id="skip-to-content" href="#content">Skip to the content.</a>
+        <h1 class="hero-title">
+          Carnahan<span class="highlight">Starling</span>
+        </h1>
+        <p class="hero-subtitle">by ATOMS LAB</p>
 
-  <header class="page-header" role="banner">
-    <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline
-      }}</h2>
-    <a href="blueprint" class="btn">Blueprint (web)</a>
-    <a href="blueprint.pdf" class="btn">Blueprint (pdf)</a>
-    <a href="docs" class="btn">Documentation</a>
-    {% if site.github.is_project_page %}
-    <a href="{{ site.github.repository_url }}" class="btn">GitHub</a>
-    {% endif %}
-  </header>
+        <div class="button-group">
+          <a href="blueprint/" class="action-btn">
+            <span class="btn-icon">🌐</span> Blueprint (web)
+          </a>
+          <a href="blueprint.pdf" class="action-btn">
+            <span class="btn-icon">📄</span> Blueprint (pdf)
+          </a>
+          <a href="docs/" class="action-btn">
+            <span class="btn-icon">📚</span> Documentation
+          </a>
+          {% if site.github.is_project_page %}
+          <a href="{{ site.github.repository_url }}" class="action-btn">
+            <span class="btn-icon">🐙</span> GitHub
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
 
-  <main id="content" class="main-content" role="main">
-    {{ content }}
+    <!-- Useful Links Section -->
+    <section class="links-section">
+      <h2 class="section-title">Useful links</h2>
+      <div class="links-grid">
+        <a href="https://zulip.lean-lang.org/" class="link-card">
+          <div class="card-icon">💬</div>
+          <h3>Zulip chat for Lean</h3>
+          <p>Chat with the Lean community for coordination.</p>
+        </a>
+        <a href="blueprint/" class="link-card">
+          <div class="card-icon">⊞</div>
+          <h3>Blueprint</h3>
+          <p>View the interactive blueprint (web).</p>
+        </a>
+        <a href="blueprint.pdf" class="link-card">
+          <div class="card-icon">📄</div>
+          <h3>Blueprint as pdf</h3>
+          <p>Download the blueprint as a PDF file.</p>
+        </a>
+        <a href="blueprint/dep_graph_document.html" class="link-card">
+          <div class="card-icon">⊗</div>
+          <h3>Dependency graph</h3>
+          <p>Explore the project dependency graph.</p>
+        </a>
+        <a href="docs/" class="link-card">
+          <div class="card-icon">📖</div>
+          <h3>Documentation</h3>
+          <p>View comprehensive documentation.</p>
+        </a>
+      </div>
+    </section>
 
+    <!-- Footer -->
     <footer class="site-footer">
-      {% if site.github.is_project_page %}
-      <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a>
-	is maintained by Kevin Ishimwe. Visit the GitHub repository for more information.</span>
-      {% endif %}
+      <div class="footer-content">
+        <div class="footer-badge">
+          <span class="badge-icon">✓</span>
+          <div class="badge-text">
+            <strong>CarnahanStarling is maintained by ATOMS LAB.</strong>
+            {% if site.github.is_project_page %} Visit the
+            <a href="{{ site.github.repository_url }}" class="footer-link"
+              >GitHub repository</a
+            >
+            for more information. {% endif %}
+          </div>
+        </div>
+      </div>
     </footer>
-  </main>
-</body>
-
+  </body>
 </html>
