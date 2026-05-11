@@ -19,7 +19,7 @@ blueprint/src/*.fdb_latexmk
 .DS_Store
 
 # Images / screenshots you may not want tracked
-*.png
+/*.png
 
 # Jekyll build output (home_page)
 home_page/_site/
